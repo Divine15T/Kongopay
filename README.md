@@ -1,7 +1,7 @@
 # Kongopay Solution de Monnaie Électronique et d'Inclusion Financière Souveraine
 
 ## Description
-KongoPay une application de mobile money insiprée d'Orange et MTN Mobile Money, mais version qouveraine congolaise. Elle permettra aux citoyens d'e,voyer de l'argent par QR Code et à la Banque Centrale de superviser toutes les transactions.
+KongoPay une application de mobile money insiprée d'Orange et MTN Mobile Money, mais version souveraine congolaise. Elle permettra aux citoyens d'envoyer de l'argent par QR Code et à la Banque Centrale de superviser toutes les transactions.
 
 ## Architecture
 
