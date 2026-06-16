@@ -1,7 +1,7 @@
 // Script commun pour KongoPay
 
 // Configuration de l'API
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://kongopay-backend.onrender.com';
 
 // Fonction utilitaire pour faire des appels API
 async function apiCall(endpoint, method, data) {
