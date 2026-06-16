@@ -1,4 +1,16 @@
 {
+  "name": "Kongopay-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"  
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
