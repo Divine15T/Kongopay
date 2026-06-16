@@ -364,6 +364,71 @@ if (document.getElementById('navHome')) {
 }
 
 
+
+
+
+
+
+// ==================== PAGE ADMIN (BANQUE CENTRALE) ====================
+
+if (document.querySelector('.admin-header')) {
+    let allTransactions = [];
+
+    // Chargement des transactions depuis l'API
+    async function loadAdminTransactions() {
+        const container = document.getElementById('adminTransactionsList');
+        if (!container) return;
+        
+        container.innerHTML = '<div class="transaction-card">Chargement...</div>';
+        
+        try {
+            const response = await apiCall('/admin/transactions', 'GET');
+            const data = await response.json();
+            
+            if (response.ok && data.transactions) {
+                allTransactions = data.transactions;
+                displayAdminTransactions(allTransactions);
+                updateFraudAlert(allTransactions);
+            } else {
+                container.innerHTML = '<div class="transaction-card">Aucune transaction trouvée</div>';
+            }
+        } catch (error) {
+            console.error('Erreur:', error);
+            container.innerHTML = '<div class="transaction-card">Erreur de chargement</div>';
+        }
+    }
+
+    function updateFraudAlert(transactions) {
+        const suspectCount = transactions.filter(t => t.amount > 1000000).length;
+        const fraudCountSpan = document.getElementById('fraudCount');
+        if (fraudCountSpan) {
+            fraudCountSpan.innerHTML = `${suspectCount} transaction(s) suspecte(s) détectée(s)`;
+        }
+    }
+
+    // Recherche
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = allTransactions.filter(t => 
+                t.from_phone?.toLowerCase().includes(term) || 
+                t.to_phone?.toLowerCase().includes(term) ||
+                t.id?.toLowerCase().includes(term)
+            );
+            displayAdminTransactions(filtered);
+        });
+    }
+
+    // Bouton voir les fraudes
+    document.getElementById('viewFraudBtn')?.addEventListener('click', () => {
+        const suspectTx = allTransactions.filter(t => t.amount > 1000000);
+        displayAdminTransactions(suspectTx);
+    });
+
+    // Chargement au démarrage
+    loadAdminTransactions();
+}
 function displayAdminTransactions(transactions) {
     const container = document.getElementById('adminTransactionsList');
     if (!container) return;
@@ -410,3 +475,11 @@ function displayAdminTransactions(transactions) {
         });
     });
 }
+document.getElementById('navAdmin')?.addEventListener('click', () => {
+    window.location.href = 'admin.html';
+});
+
+document.getElementById('navLogout')?.addEventListener('click', () => {
+    localStorage.clear();
+    window.location.href = 'index.html';
+});

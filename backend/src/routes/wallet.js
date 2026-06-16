@@ -4,6 +4,10 @@ const pool = require('../db');
 
 router.post('/by-phone', async (req, res) => {
     const { phone } = req.body;
+
+    if (!phone) {
+        return res.status(400).json({ error: 'phone requis' });
+    }
     
     try {
         const result = await pool.query(

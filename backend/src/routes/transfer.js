@@ -45,8 +45,8 @@ if (amount <= 0) {
         const reference = `TXN_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
 
         await client.query(
-            `INSERT INTO transaction (id, amount, type, reference, portefeuille_expediteur_id, portefeuille_destinataire_id)
-            VALUES (gen_random_uuid(), $1, 'transfert', $2, $3, $4)`,
+            `INSERT INTO transaction (id, amount, type, reference, portefeuille_expediteur_id, portefeuille_destinataire_id, status)
+            VALUES (gen_random_uuid(), $1, 'transfert', $2, $3, $4, 'confirmed')`,
             [amount, reference, from_portefeuille_id, to_portefeuille_id]
         );
 

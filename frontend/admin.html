@@ -14,9 +14,7 @@
     <header class="admin-header">
         <div style="width: 2rem;"></div>
         <h1>Superviseur BCC</h1>
-        <div class="admin-avatar">
-            <span class="material-symbols-outlined">admin_panel_settings</span>
-        </div>
+        <div class="admin-avatar">BC</div>
     </header>
 
     <main class="admin-main">
@@ -27,10 +25,10 @@
             <input type="text" id="searchInput" placeholder="Rechercher une transaction ou un compte...">
         </div>
 
-        <!-- Alertes Fraude (Bannière rouge animée) -->
-        <div class="fraud-alert animate-pulse" id="fraudAlert">
+        <!-- Alertes Fraude -->
+        <div class="fraud-alert" id="fraudAlert">
             <div class="fraud-icon">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+                <span class="material-symbols-outlined">warning</span>
             </div>
             <div class="fraud-content">
                 <h3>Alertes de Fraude</h3>
@@ -54,20 +52,16 @@
 
     </main>
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <button class="nav-item" id="navHome">
-            <span class="material-symbols-outlined nav-icon">home</span>
-            <span class="nav-label">Home</span>
-        </button>
-        <button class="nav-item" id="navDashboard">
-            <span class="material-symbols-outlined nav-icon">dashboard</span>
-            <span class="nav-label">Dashboard</span>
-        </button>
-        <button class="nav-item active" id="navAdmin">
-            <span class="material-symbols-outlined nav-icon">admin_panel_settings</span>
-            <span class="nav-label">Admin</span>
-        </button>
+   <!-- Bottom Navigation simplifiée -->
+     <nav class="bottom-nav">
+    <button class="nav-item active" id="navAdmin">
+        <span class="material-symbols-outlined nav-icon">admin_panel_settings</span>
+        <span class="nav-label">Supervision</span>
+    </button>
+    <button class="nav-item" id="navLogout">
+        <span class="material-symbols-outlined nav-icon">logout</span>
+        <span class="nav-label">Quitter</span>
+    </button>
     </nav>
 
     <script src="script.js"></script>

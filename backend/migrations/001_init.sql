@@ -13,20 +13,21 @@
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id)
     );
-    CREATE TABLE Transaction (
-        id UUID PRIMARY KEY,
+    CREATE TABLE transaction (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         amount BIGINT NOT NULL,
         type VARCHAR(20) DEFAULT 'transfert',
         reference VARCHAR(50) UNIQUE NOT NULL,
         portefeuille_expediteur_id UUID NOT NULL,
         portefeuille_destinataire_id UUID NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (portefeuille_expediteur_id) REFERENCES Portefeuille(id),
-        FOREIGN KEY (portefeuille_destinataire_id) REFERENCES Portefeuille(id)
-    );
+        status VARCHAR(20) DEFAULT 'confirmed',
+        created_at TIMESTAMP DEFAULT NOW(),
+        FOREIGN KEY (portefeuille_expediteur_id) REFERENCES portefeuille(id),
+        FOREIGN KEY (portefeuille_destinataire_id) REFERENCES portefeuille(id)
+   );
     CREATE TABLE Alerte_fraude (
         id SERIAL PRIMARY KEY,
-        transaction_id UUID REFERENCES Transaction(id) NOT NULL,
+        transaction_id UUID REFERENCES transaction(id) NOT NULL,
         description TEXT NOT NULL,
         detected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
