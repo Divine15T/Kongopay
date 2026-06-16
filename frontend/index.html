@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KongoPay - Inscription</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barre du haut -->
+    <div class="top-bar">
+        <button id="backBtn" style="background: none; border: none; cursor: pointer;">
+            <span class="material-symbols-outlined" style="color: #00342b;">arrow_back</span>
+        </button>
+        <span class="logo">KongoPay</span>
+        <div class="avatar">
+            <span class="material-symbols-outlined" style="color: #9ca3af;">person</span>
+        </div>
+    </div>
+
+    <!-- Formulaire d'inscription -->
+    <div class="container" id="registration-form">
+        <h2 style="font-size: 1.875rem; font-weight: bold; color: #00342b; margin-bottom: 0.5rem;">Création de compte</h2>
+        <p style="color: #6b7280; margin-bottom: 1.5rem;">Veuillez renseigner vos informations pour sécuriser votre identité numérique.</p>
+
+        <div class="card">
+            <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+                <div style="width: 4rem; height: 4rem; border-radius: 9999px; background-color: #e0f2fe; display: flex; align-items: center; justify-content: center;">
+                    <span class="material-symbols-outlined" style="font-size: 2rem; color: #00342b;">shield</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Numéro de téléphone</label>
+                <input id="phone" type="tel" class="form-input" placeholder="Entrez votre numéro de téléphone">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Nom complet</label>
+                <input id="fullname" type="text" class="form-input" placeholder="Entrez votre nom complet">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Numéro d'identité (ID)</label>
+                <input id="identity" type="text" class="form-input" placeholder="Entrez votre numéro d'identité">
+            </div>
+
+            <div class="info-box">
+                <span class="material-symbols-outlined" style="color: #0f766e;">info</span>
+                <p class="info-text">Vos données sont chiffrées et ne seront utilisées que pour la vérification institutionnelle de votre profil.</p>
+            </div>
+
+            <button id="submitBtn" class="btn-primary">
+                Créer mon wallet
+                <span class="material-symbols-outlined" style="vertical-align: middle;">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Écran de succès (caché au départ) -->
+    <div id="success-state" class="container hidden" style="text-align: center;">
+        <div class="success-icon">
+            <span class="material-symbols-outlined" style="color: #b45309; font-size: 2rem;">check_circle</span>
+        </div>
+
+        <h2 class="success-title">Compte Créé !</h2>
+        <p class="success-text">Conservez ces informations précieusement.</p>
+
+        <!-- PIN Card -->
+        <div class="pin-card">
+            <div class="flex-between">
+                <p class="pin-label">Votre Code PIN Sécurisé</p>
+                <span class="material-symbols-outlined" style="color: #735c00;">lock</span>
+            </div>
+            <p id="pin-display" class="pin-value">8249</p>
+            <button class="copy-key-btn" data-target="pin-display">
+                <span class="material-symbols-outlined">content_copy</span>
+                Copier le code PIN
+            </button>
+        </div>
+
+        <!-- Clé Secrète Card -->
+        <div class="key-card">
+            <div class="flex-between">
+                <p class="pin-label">Clé Secrète Unique</p>
+                <span class="material-symbols-outlined" style="color: #735c00;">lock</span>
+            </div>
+            <p id="key-display" class="key-value">BCC-9923-FF22-ZQXA-4811-LMN9-PK88-V4</p>
+            <button class="copy-key-btn" id="copyKeyBtn">
+                <span class="material-symbols-outlined">content_copy</span>
+                Copier la clé
+            </button>
+        </div>
+
+        <div class="warning-box">
+            <span class="material-symbols-outlined" style="color: #dc2626;">warning</span>
+            Ne partagez jamais ces informations avec des tiers.
+        </div>
+
+        <button id="dashboardBtn" class="btn-primary">
+            Accéder à mon espace
+        </button>
+    </div>
+
+    <!-- Barre de navigation inférieure -->
+    <nav class="bottom-nav">
+        <button class="nav-item">
+            <span class="material-symbols-outlined nav-icon">home</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item active">
+            <span class="material-symbols-outlined nav-icon">person</span>
+            <span class="nav-label">Profile</span>
+        </button>
+        <button class="nav-item">
+            <span class="material-symbols-outlined nav-icon">qr_code_scanner</span>
+            <span class="nav-label">Scan</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
