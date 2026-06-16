@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>KongoPay - Envoyer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barre du haut -->
+    <div class="top-bar">
+        <button id="backBtn" style="background: none; border: none; cursor: pointer;">
+            <span class="material-symbols-outlined" style="color: #00342b;">arrow_back</span>
+        </button>
+        <span class="logo">KongoPay</span>
+        <div class="avatar">
+            <span class="material-symbols-outlined" style="color: #9ca3af;">person</span>
+        </div>
+    </div>
+
+    <main class="container-send">
+
+        <!-- Zone QR Code Scan -->
+        <div class="qr-section">
+            <div class="qr-scanner-container" id="qr-reader-container">
+                <!-- Scanner réel sera injecté ici -->
+                <div id="qr-reader" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; border-radius: 0.75rem; overflow: hidden;"></div>
+                <!-- Éléments visuels Stich par-dessus -->
+                <div class="qr-corner top-left"></div>
+                <div class="qr-corner top-right"></div>
+                <div class="qr-corner bottom-left"></div>
+                <div class="qr-corner bottom-right"></div>
+                <div class="qr-scanner-line"></div>
+                <div class="qr-overlay-message">
+                    <span id="qr-status">Aligner le code QR</span>
+                </div>
+            </div>
+            <p class="qr-hint">Paiement instantané par scan</p>
+        </div>
+
+        <!-- Formulaire d'envoi -->
+        <div class="send-card">
+            <!-- Destinataire (téléphone ou ID) -->
+            <div class="form-group">
+                <label class="form-label">Numéro du destinataire</label>
+                <div class="input-icon-wrapper">
+                    <span class="material-symbols-outlined input-icon">person_search</span>
+                    <input id="recipient" type="tel" class="form-input-icon" placeholder="Ex: 061234567">
+                </div>
+            </div>
+
+            <!-- Montant -->
+            <div class="amount-group">
+                <label class="form-label">Montant à envoyer</label>
+                <div class="amount-input-wrapper">
+                    <input id="amount" type="number" class="amount-input" placeholder="0">
+                    <span class="amount-currency">FCFA</span>
+                </div>
+            </div>
+
+            <!-- Frais -->
+            <div class="fee-recap">
+                <div class="fee-left">
+                    <span class="material-symbols-outlined">info</span>
+                    <span>Frais de transaction:</span>
+                </div>
+                <span class="fee-value">0 FCFA</span>
+            </div>
+
+            <!-- Bouton envoyer -->
+            <button id="sendMoneyBtn" class="btn-send">
+                <span>Valider le paiement</span>
+                <span class="material-symbols-outlined">send</span>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Barre de navigation inférieure -->
+    <nav class="bottom-nav">
+        <button class="nav-item" id="navHome">
+            <span class="material-symbols-outlined nav-icon">home</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item active" id="navScan">
+            <span class="material-symbols-outlined nav-icon">qr_code_scanner</span>
+            <span class="nav-label">Scan</span>
+        </button>
+        <button class="nav-item" id="navProfile">
+            <span class="material-symbols-outlined nav-icon">person</span>
+            <span class="nav-label">Profile</span>
+        </button>
+    </nav>
+
+    <!-- Overlay de succès -->
+    <div id="successOverlay" class="success-overlay hidden">
+        <div class="success-content">
+            <div class="success-icon-circle">
+                <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <h2>Paiement Réussi</h2>
+            <p>La transaction a été traitée avec succès.</p>
+            <button id="closeSuccessBtn" class="btn-secondary">Retour au menu</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

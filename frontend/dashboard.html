@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KongoPay - Tableau de bord</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barre du haut -->
+    <div class="top-bar">
+        <div style="width: 2rem;"></div>
+        <span class="logo">KongoPay</span>
+        <div class="avatar">
+            <span class="material-symbols-outlined" style="color: #9ca3af;">person</span>
+        </div>
+    </div>
+
+    <main class="container-dashboard">
+
+        <!-- Message de bienvenue -->
+        <div class="welcome-section">
+            <p class="greeting-label" id="greetingLabel">Bonjour,</p>
+            <h2 class="user-name" id="userName">Chargement...</h2>
+        </div>
+
+        <!-- Carte solde -->
+        <div class="balance-card">
+            <div class="balance-icon">
+                <span class="material-symbols-outlined">account_balance_wallet</span>
+            </div>
+            <div class="balance-content">
+                <p class="balance-label">Solde Total</p>
+                <p class="balance-amount" id="balanceAmount">0 FCFA</p>
+            </div>
+            <div class="balance-footer">
+                <div class="verified-badge">
+                    <span class="material-symbols-outlined">verified_user</span>
+                    <span>Compte Vérifié</span>
+                </div>
+                <div class="visa-badge">VISA •• 8842</div>
+            </div>
+        </div>
+
+        <!-- Actions rapides -->
+        <div class="actions-row">
+            <div class="action-item">
+                <button class="action-btn" id="sendBtn">
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+                <span>Envoyer</span>
+            </div>
+            <div class="action-item">
+                <button class="action-btn" id="scanBtn">
+                    <span class="material-symbols-outlined">qr_code_scanner</span>
+                </button>
+                <span>Scanner</span>
+            </div>
+            <div class="action-item">
+                <button class="action-btn" id="rechargeBtn">
+                    <span class="material-symbols-outlined">add_card</span>
+                </button>
+                <span>Recharger</span>
+            </div>
+        </div>
+
+        <!-- Cartes revenu / épargne -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="material-symbols-outlined stat-icon">trending_up</span>
+                <p class="stat-label">Revenu Mensuel</p>
+                <p class="stat-value" id="monthlyIncome">+0 FCFA</p>
+            </div>
+            <div class="stat-card">
+                <span class="material-symbols-outlined stat-icon">savings</span>
+                <p class="stat-label">Épargne</p>
+                <p class="stat-value" id="savingsAmount">0 FCFA</p>
+            </div>
+        </div>
+
+        <!-- Liste des transactions -->
+        <div class="transactions-section">
+            <div class="transactions-header">
+                <h3>Transactions Récentes</h3>
+                <button id="viewAllBtn" class="view-all">Voir tout</button>
+            </div>
+            <div id="transactionsList" class="transactions-list">
+                <div class="transaction-card">
+                    <div class="transaction-left">
+                        <div class="transaction-icon">
+                            <span class="material-symbols-outlined">hourglass_top</span>
+                        </div>
+                        <div>
+                            <p class="transaction-title">Chargement...</p>
+                            <p class="transaction-date">--</p>
+                        </div>
+                    </div>
+                    <div class="transaction-right">
+                        <p class="transaction-amount">---</p>
+                        <div class="transaction-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Barre de navigation inférieure -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" id="navHome">
+            <span class="material-symbols-outlined nav-icon">home</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" id="navScan">
+            <span class="material-symbols-outlined nav-icon">qr_code_scanner</span>
+            <span class="nav-label">Scan</span>
+        </button>
+        <button class="nav-item" id="navProfile">
+            <span class="material-symbols-outlined nav-icon">person</span>
+            <span class="nav-label">Profile</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>KongoPay - Supervision Banque Centrale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top AppBar -->
+    <header class="admin-header">
+        <div style="width: 2rem;"></div>
+        <h1>Superviseur BCC</h1>
+        <div class="admin-avatar">
+            <span class="material-symbols-outlined">admin_panel_settings</span>
+        </div>
+    </header>
+
+    <main class="admin-main">
+
+        <!-- Recherche -->
+        <div class="search-container">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="searchInput" placeholder="Rechercher une transaction ou un compte...">
+        </div>
+
+        <!-- Alertes Fraude (Bannière rouge animée) -->
+        <div class="fraud-alert animate-pulse" id="fraudAlert">
+            <div class="fraud-icon">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+            </div>
+            <div class="fraud-content">
+                <h3>Alertes de Fraude</h3>
+                <p id="fraudCount">Chargement...</p>
+            </div>
+            <button id="viewFraudBtn">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+        </div>
+
+        <!-- Transactions Section -->
+        <div class="transactions-section">
+            <div class="section-header">
+                <h3>Transactions Récentes</h3>
+                <span>Temps Réel</span>
+            </div>
+            <div id="adminTransactionsList" class="transactions-list">
+                <div class="transaction-card">Chargement...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <button class="nav-item" id="navHome">
+            <span class="material-symbols-outlined nav-icon">home</span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button class="nav-item" id="navDashboard">
+            <span class="material-symbols-outlined nav-icon">dashboard</span>
+            <span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-item active" id="navAdmin">
+            <span class="material-symbols-outlined nav-icon">admin_panel_settings</span>
+            <span class="nav-label">Admin</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
