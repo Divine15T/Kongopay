@@ -5,6 +5,9 @@ const pool = require('../db');
 router.post('/', async (req, res) => {
     //1. Récupérer phone, nom, identity
     const { phone, nom, identity } = req.body;
+
+console.log('Tentative d inscription avec:', { phone, nom, identity });
+
     //2. Valider les champs
     if (!phone || !nom || !identity) {
         return res.status(400).json({ error: 'Tous les champs sont requis' });
