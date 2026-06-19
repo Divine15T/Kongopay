@@ -1,17 +1,18 @@
-    CREATE TABLE Utilisateur (
+    CREATE TABLE utilisateur (
         id UUID PRIMARY KEY,
         telephone VARCHAR(20) UNIQUE NOT NULL,
         nom VARCHAR(20) NOT NULL,
+        identity VARCHAR(50) UNIQUE NOT NULL,
         statut VARCHAR(20) NOT NULL DEFAULT 'actif',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
-    CREATE TABLE Portefeuille (
+    CREATE TABLE portefeuille (
         id UUID PRIMARY KEY,
         utilisateur_id UUID UNIQUE NOT NULL,
         solde BIGINT DEFAULT 0 NOT NULL,
         version INTEGER DEFAULT 1 NOT NULL,  
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id)
+        FOREIGN KEY (utilisateur_id) REFERENCES utilisateur(id)
     );
     CREATE TABLE transaction (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -25,7 +26,7 @@
         FOREIGN KEY (portefeuille_expediteur_id) REFERENCES portefeuille(id),
         FOREIGN KEY (portefeuille_destinataire_id) REFERENCES portefeuille(id)
    );
-    CREATE TABLE Alerte_fraude (
+    CREATE TABLE alerte_fraude (
         id SERIAL PRIMARY KEY,
         transaction_id UUID REFERENCES transaction(id) NOT NULL,
         description TEXT NOT NULL,

@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
              WHERE p1.id = $1 OR p2.id = $1
              ORDER BY t.created_at DESC
              LIMIT 20`,
-            [wallet_id]
+            [wallet_id]  
         );
         
         const transactions = result.rows.map(tx => ({
@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
         
         res.json({ transactions });
     } catch (error) {
+        console.error('Erreur transactions:', error.message);
         res.status(500).json({ error: error.message });
     }
 });
